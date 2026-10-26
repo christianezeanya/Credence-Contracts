@@ -1,7 +1,7 @@
 //! Audit helper to verify that an off-chain promise matches on-chain execution.
-///
+//!
 //! # Threat being mitigated
-///
+//!
 //! Without this check, an off-chain actor (e.g. a relayer, a frontend, or a
 //! compromised signing key) could submit a delegated action payload that *claims*
 //! to perform one action (e.g. `delegate` to address A) but actually executes a
@@ -31,6 +31,7 @@
 //! that were actually passed to the entry point).
 
 use credence_errors::ContractError;
+use crate::{domain::DomainTag, DelegationType};
 use soroban_sdk::{panic_with_error, xdr::ToXdr, Bytes, Env, IntoVal};
 
 /// Assert that a promised action hash matches the actual execution hash.

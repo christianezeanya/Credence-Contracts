@@ -1,10 +1,8 @@
 use super::*;
 use soroban_sdk::{
     testutils::{Address as _, Ledger},
-    Address, BytesN, Env, vec, IntoVal,
+    Address, BytesN, Env, IntoVal, vec,
 };
-
-use soroban_sdk::IntoVal;
 
 fn setup_env() -> (Env, TimelockContractClient<'static>, Address) {
     let env = Env::default();
